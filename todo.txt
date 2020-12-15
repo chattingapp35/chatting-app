@@ -1,0 +1,19 @@
+store user preferance like light/dark mode and text color in database(also ask first hand if user wants same settings on all devices or different settings on different devices)
+
+show wether information if user chooses to share location using cookies
+
+connect users on basis of location in anonmous chat rooms
+
+register location when user logins on a new device
+
+page that shows currently logged in devices
+
+maintain activity logs to show to user in case of scenarios related to privacy and security
+
+search whether sending rendered html is good or sending just required minimum information... in case of just basic information store basic skeleton of the app on user local storage so as to make http requests use less data hence taking off some load from the server..
+
+contacts whose messages are unread in your chat list should be bold so that one should see the difference betwwen read and unnread messages if there are any unread messages
+
+try to implement end to end encryption on messages in chats
+
+remove all the ids associated with the cookie when a user signs out of all the devices or changes the account password

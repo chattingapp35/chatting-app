@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome To Login Form</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script>
+        async function login()
+            {
+                const username = document.getElementById("username").value;
+                const email = document.getElementById("email").value;
+                const age = document.getElementById("age").value;;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+                
+                if(username.length < 5)
+                {
+                    document.getElementById("authentication").innerHTML = "Username must me atleast 5 characters long"
+                }
+                else if(password.length < 6)
+                {
+                    document.getElementById("authentication").innerHTML = "Password min length is 6."
+                }
+                else if(password != confirmPassword)
+                {
+                    document.getElementById("authentication").innerHTML = "Password and confirm password doesn't match"
+                }
+                else
+                {
+                    try {
+                        await fetch('/login', {
+                            method: "POST",
+                            body: JSON.stringify({ 
+                                username,
+                                password
+                            }), 
+                            headers: { 
+                                "Content-type": "application/json; charset=UTF-8"
+                            }
+                        }).then(response => {
+                            return response.json()
+                        }).then(json => {
+                            document.getElementById("username").value = "";
+                            document.getElementById("password").value = "";
+                            window.location = json.url;
+                        })
+                    } catch {
+                        document.getElementById("username").value = "";
+                        document.getElementById("password").value = "";
+                        document.getElementById("authentication").innerHTML = "Username or Password incorrect"
+                    }
+                }
+            }		
+    </script>
+  </head>
+
+  <body>
+    <div class="centeredDiv">
+        <h1>Sign Up page</h1>
+        <input type="text" placeholder="Username" id="username"/><br>
+        <input type="text" placeholder="Email" id="email"/><br>
+        <input type="text" placeholder="Age" id="age"/><br>
+        <input type="password" placeholder="Password" id="password"/><br>
+        <input type="password" placeholder="Confirm password" id="confirmPassword"/><br>
+        <p id="authentication"></p>
+        <input type="submit" value="Reset"/>
+        <input type="submit" value="SignUp" onClick="singup()" />
+    </div>
+  </body>
+</html>

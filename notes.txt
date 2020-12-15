@@ -1,0 +1,7 @@
+			cookies
+
+Using cookies, sites can determine how many visitors arrive, how many are new versus repeat visitors and how often a visitor has visited.
+
+Sites can store user preferences so that the site can look different for each visitor (often referred to as customization). For example, if you visit msn.com, it offers you the ability to "change content/layout/color."
+
+
