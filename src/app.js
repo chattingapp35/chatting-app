@@ -6,7 +6,7 @@ const anonymousRouter = require('./router/anonymous')
 const bodyParser = require('body-parser')
 const socketio = require('socket.io')
 
-const port = process.env.port || 3000    // setting port
+const port = process.env.PORT || 3000    // setting port
 
 
 const app = express()
