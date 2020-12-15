@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="css/login.css">
     <title>Chat App</title>
 </head>
 <body>
-    <h1>Chatting app</h1>
-    <button onclick="document.location='/login'">Login</button>
-    <button onclick="document.location='/signup'">SignUp</button>
-    <button onclick="document.location='/anonymous'">Anonymous Chatrooms</button>    
+    <div class="centeredDiv">
+        <h1>Chatting app</h1>
+        <input type="submit" class="inputBut" value="Login" onclick="document.location='/login'" />
+        <input type="submit" class="inputBut" value="Sign up" onclick="document.location='/signup'" />
+        <input type="submit" class="inputBut" value="anonymous"onclick="document.location='/anonymous'" />
+    </div>
 </body>
 </html>

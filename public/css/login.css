@@ -1,19 +1,21 @@
 body {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHVpsYN1GgqNlxU4czlITrZBeBBAZKIl7OHQ&usqp=CAU");
+    background-color: black;
 }
 .centeredDiv {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(172, 171, 171, 0.877);
-    padding: 100px;
+    background-color: white;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
     text-align: center;
-    border-radius: 80px;
+    border-radius: 20px;
 }
 
 .centeredDiv h1 {
-    color: white;
     font-size: 72px;
 }
 
@@ -26,12 +28,15 @@ body {
     margin-top: 5px;
     margin-left: 5px;
     outline: none;
-    border: none;
+    /* border: none; */
     font-size: 15px;
 }
 
 .inputBut {
     cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
 }
 
 .centeredDiv input:focus{
