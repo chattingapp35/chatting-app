@@ -19,14 +19,16 @@ router.get('/login', (req, res) => {
     res.sendFile(`${homeDirectory}/login.html`)
 })
 
-router.post('/get-google-auth-url', (req, res) => {
-    const url = urlGoogle();
-    res.send(url)
+router.post('/get-google-auth-url', async (req, res) => {
+    const url = await urlGoogle();
+    res.send({
+        url
+    })
 })
 
 router.get('/google-auth', (req, res) => {
-    res.send(req)
-    console.log(req)
+    res.send('haha')
+    console.log(req.query)
 })
 
 router.post('/login', async (req, res) => {

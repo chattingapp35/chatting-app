@@ -1,4 +1,4 @@
-import { google } from 'googleapis';
+const { google } =  require('googleapis');
 
 const googleConfig = {
     clientId: '713881760388-59fevhhfc13a700b9813neq7ffeknggc.apps.googleusercontent.com',

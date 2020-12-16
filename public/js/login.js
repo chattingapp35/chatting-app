@@ -40,15 +40,23 @@ function login(){
 }
 
 function getGoogleAuthUrl() {
-    const response = fetch('/login', {
+    fetch('/get-google-auth-url', {
         method: "POST",
-        body: JSON.stringify({ 
-            username,
-            password
-        }), 
         headers: { 
             "Content-type": "application/json; charset=UTF-8"
         }
+    }).then((response) => {
+        if (response.ok) {
+            return response.json()
+        } else {
+            console.log(response)
+            throw new Error(response.statusText)
+        }
+    }).then((response) => {
+        console.log(response)
+        window.location = response.url;
+    }).catch((error) => {
+        console.log(error)
+        document.getElementById("authentication").innerHTML = error
     })
-    console.log(response)
 }
