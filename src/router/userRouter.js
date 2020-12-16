@@ -5,7 +5,10 @@ const path = require('path')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
+const {urlGoogle} = require('./../utils/google_sign_in')
+
 const initializePassport = require('./../helpers/passport_config')
+const { response } = require('express')
 // initializePassport(passport, email => {
 //     return users.find(user => user.email === email)
 // })
@@ -14,6 +17,16 @@ const homeDirectory = path.join(__dirname, '/../../public')
 
 router.get('/login', (req, res) => {
     res.sendFile(`${homeDirectory}/login.html`)
+})
+
+router.post('/get-google-auth-url', (req, res) => {
+    const url = urlGoogle();
+    res.send(url)
+})
+
+router.get('/google-auth', (req, res) => {
+    res.send(req)
+    console.log(req)
 })
 
 router.post('/login', async (req, res) => {
