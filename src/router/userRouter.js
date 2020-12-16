@@ -29,6 +29,7 @@ router.post('/get-google-auth-url', async (req, res) => {
 router.get('/google-auth', (req, res) => {
     res.send('haha')
     console.log(req.query)
+    console.log(req.query.code)
 })
 
 router.post('/login', async (req, res) => {
