@@ -38,3 +38,17 @@ function login(){
         })
     }
 }
+
+function getGoogleAuthUrl() {
+    const response = fetch('/login', {
+        method: "POST",
+        body: JSON.stringify({ 
+            username,
+            password
+        }), 
+        headers: { 
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    console.log(response)
+}
