@@ -26,10 +26,9 @@ router.post('/get-google-auth-url', async (req, res) => {
     })
 })
 
-router.get('/google-auth', (req, res) => {
-    res.send(req.query)
-    // const userdata = getGoogleAccountFromCode(req.query.code)
-    // res.send()
+router.get('/google-auth', async (req, res) => {
+    const userdata = await getGoogleAccountFromCode(req.query.code)
+    res.send(userdata);
 })
 
 router.post('/login', async (req, res) => {
