@@ -5,7 +5,7 @@ const path = require('path')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
-const {urlGoogle} = require('./../utils/google_sign_in')
+const {urlGoogle, getGoogleAccountFromCode} = require('./../utils/google_sign_in')
 
 const initializePassport = require('./../helpers/passport_config')
 const { response } = require('express')
@@ -27,9 +27,9 @@ router.post('/get-google-auth-url', async (req, res) => {
 })
 
 router.get('/google-auth', (req, res) => {
-    res.send('haha')
-    console.log(req.query)
-    console.log(req.query.code)
+    res.send(req.query)
+    // console.log(req.query)
+    // console.log(req.query.code)
 })
 
 router.post('/login', async (req, res) => {
