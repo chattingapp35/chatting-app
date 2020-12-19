@@ -1,3 +1,7 @@
+find way to store jwt securely in browser after login...
+secure jwt(type of encryption)
+
+
 store user preferance like light/dark mode and text color in database(also ask first hand if user wants same settings on all devices or different settings on different devices)
 
 show wether information if user chooses to share location using cookies

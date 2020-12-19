@@ -4,6 +4,7 @@ const express = require('express')
 const userRouter = require('./router/userRouter')
 const anonymousRouter = require('./router/anonymous')
 const bodyParser = require('body-parser')
+let cookieParser = require('cookie-parser');
 const socketio = require('socket.io')
 
 const port = process.env.PORT || 3000    // setting port
@@ -13,6 +14,7 @@ const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
+app.use(cookieParser()); 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
