@@ -25,9 +25,8 @@ router.get('/google-auth', async (req, res) => {
     const token = createJWT({
         email: userdata.email
     })
-    res.cookie("user", token, {expire: 604800000 + Date.now()})
-    res.redirect(`/${userdata.email}`) // this is incomplete.. please complete this part.. create a route so that users can be routed to chattingapp.com/user
-    res.send(userdata);
+    res.cookie("user", token, {maxAge: 604800000, httpOnly: true})
+    res.redirect(`/user/${userdata.email}`) // this is incomplete.. validate from db if the user exists.. if user doesn't exists then return back to login page
 })
 
 router.get('/logout', (req, res) => {
@@ -43,7 +42,7 @@ router.get('/signup', (req, res) => {
     res.sendFile(`${homeDirectory}/signup.html`)
 })
 
-router.get("/:user", (req, res) => {
+router.get("/user/:user", (req, res) => {
     res.send(`welcome ${req.params.user}`)
 })
 

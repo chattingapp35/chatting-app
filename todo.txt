@@ -1,5 +1,6 @@
 find way to store jwt securely in browser after login...
 secure jwt(type of encryption)
+add feature(create a button on users profile.. on button press shortened link pointing to users profile will be coppied to clients clipboard)
 
 
 store user preferance like light/dark mode and text color in database(also ask first hand if user wants same settings on all devices or different settings on different devices)
