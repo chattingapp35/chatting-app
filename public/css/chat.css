@@ -11,8 +11,20 @@ html, body{
     background-color:rgba(0, 255, 0,1);
 }
 
-.header h1 {
-    text-align: end;
+.header img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.header h2 {
+    margin-top: 0;
+    font-size: 26px;
+    padding-top: 16px;
+    padding-right: 30px;
+    float: right;
 }
 
 .main-window{
@@ -26,28 +38,105 @@ html, body{
 .contacts-window{
     box-sizing: border-box;
     background-color: black;
-    width: 27%;
+    width: 25%;
     float: left;
     color: white;
     border-right: 1px solid green;
     height: 100%;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    position: relative;
 }
 
-/* .contacts-window-header{
-    background-color: rgba(0, green, 0, 0.5);
-} */
+.contacts-window-header {
+    /* margin-bottom: 10px; */
+    padding-bottom: 0;
+}
 
 .contacts-window-header h1 {
     color: white;
-    /* background-color: rgba(0, green, 0, 0.5); */
     background-color:rgba(0, 255, 0,1);
     text-align: center;
     margin-top: 0;
     margin-bottom: 0;
-    padding: 5px;
+    font-size: 40px;
+    padding: 0px;
+    /* border-radius: 10px; */
+    margin-right: 10px;
+}
+
+.contact-list {
+    overflow-y: auto;
+    top: 73px;
+    bottom: 0;
+    width: 94%;
+    position: absolute;
+    padding-left: 10px;
+}
+
+/* .contact-list::-webkit-scrollbar {
+    display: none;
+} */
+.contact-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.contact-list::-webkit-scrollbar-track {
+    background: #111111;
     border-radius: 10px;
-    /* border-bottom: 1px solid green; */
+}
+
+/* Handle */
+.contact-list::-webkit-scrollbar-thumb {
+    background: rgb(29, 151, 25);
+    border-radius: 10px; 
+}
+
+/* Handle on hover */
+.contact-list::-webkit-scrollbar-thumb:hover {
+    background: rgb(76, 250, 76); 
+}
+
+.contact {
+    border-radius: 35px;
+    height: 55px;
+    margin-right: 7px;
+    margin-right: 35px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(34, 33, 33, 0.479);
+    /* border-bottom: 10px solid black; */
+}
+
+.contact:hover {
+    background-color: rgba(0, 128, 0, 0.781);
+}
+
+.contact img {
+    width: 50;
+    height: 50;
+    float: left;
+    padding: 0;
+    padding-top: 3px;
+    padding-left: 5px;
+}
+
+.contact .contact-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    padding-top: 13px;
+    padding-left: 65px;
+}
+
+.contact .time {
+    float: right;
+    font-size: 12px;
+    padding-right: 17px;
+    margin: 0;
+    /* padding-bottom: 5px; */
 }
 
 .chat-window{
@@ -57,7 +146,4 @@ html, body{
     height: 100%;
     float: right;
     color:white;
-    /* margin-top: 4px; */
-    /* display: block; */
-    /* border: 1px solid green; */
 }
