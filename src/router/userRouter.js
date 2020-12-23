@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const path = require('path')
 
-const bcrypt = require('bcrypt')
+
 
 const {urlGoogle, getGoogleAccountFromCode} = require('./../utils/google_sign_in')
 const {createJWT, verifyJWT} = require('./../utils/jwt')
+const {bcryptHashedPassword} = require('./../utils/bcrypt')
 
 const homeDirectory = path.join(__dirname, '/../../public')
 
@@ -21,21 +22,34 @@ router.post('/get-google-auth-url', async (req, res) => {
 })
 
 router.get('/google-auth', async (req, res) => {
-    const userdata = await getGoogleAccountFromCode(req.query.code)
+    const user = await getGoogleAccountFromCode(req.query.code)
     const token = createJWT({
-        email: userdata.email
+        email: user.email
     })
     res.cookie("user", token, {maxAge: 604800000, httpOnly: true})
-    res.redirect(`/user/${userdata.email}`) // this is incomplete.. validate from db if the user exists.. if user doesn't exists then return back to login page
+    res.redirect(`/user/${user.email}`) // this is incomplete.. validate from db if the user exists.. if user doesn't exists then return back to login page
+})
+
+router.post('/login', async (req, res) => {
+    const user = {
+        username: req.body.username,
+        password: req.body.password
+    }
+    hashedPassword = await bcryptHashedPassword(user.password)
+    hashedPassword.then((value) => {
+        console.log(user)
+        console.log(value)
+        res.sendStatus(200)
+        res.send({
+            user,
+            value
+        })
+    })
 })
 
 router.get('/logout', (req, res) => {
     res.clearCookie("user");
     res.redirect('/');
-})
-
-router.post('/login', async (req, res) => {
-
 })
 
 router.get('/signup', (req, res) => {

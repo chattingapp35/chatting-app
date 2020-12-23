@@ -23,18 +23,13 @@ function login(){
                 }
         })
         .then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                console.log(response)
-                throw new Error(response.statusText)
+            if (!response.ok) {
+                if(response.status == 404) {
+                    document.getElementById("authentication").innerHTML = "Invalid User Credentials"
+                } else if(response.status > 499){
+                    document.getElementById("authentication").innerHTML = response.statusText
+                }
             }
-        }).then((response) => {
-            console.log(response)
-            // window.location = response.url;
-        }).catch((error) => {
-            console.log(error)
-            document.getElementById("authentication").innerHTML = error
         })
     }
 }
@@ -50,7 +45,7 @@ function getGoogleAuthUrl() {
             return response.json()
         } else {
             console.log(response)
-            throw new Error(response.statusText)
+            throw new Error(response.body)
         }
     }).then((response) => {
         console.log(response)
